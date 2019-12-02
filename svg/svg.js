@@ -9,12 +9,12 @@ function deseneaza(unghi_x, unghi_y)
 	var circle = document.getElementById("id_circle");
     var svg=document.getElementById("id_svg");
 	var=circle.getAttribute("r");
-	var x = unghi_x / 90 * (svg.width / 2 - r) + svg.width / 2;
-	var y = unghi_y / 90 * (svg.height / 2 - r) + svg.height / 2;
+	var x = unghi_x / 90 * (svg.width.animVal.value / 2 - r) + svg.width.animVal.value / 2;
+	var y = unghi_y / 90 * (svg.height.animVal.value / 2 - r) + svg.height.animVal.value / 2;
 	context.arc(x, y, r, 0, 2 * Math.PI);
 	
-	circle.setAttribute("cx",x);
-	circle.setAttribute("cy",y);
+	circle.setAttribute("cx",x+"px");
+	circle.setAttribute("cy",y+"px");
 	
 }
 
