@@ -8,6 +8,7 @@ function deseneaza(unghi_x, unghi_y)
 	// obtinem context grafic
 	var circle = document.getElementById("id_circle");
     var svg=document.getElementById("id_svg");
+	var=circle.getAttribute("r");
 	var x = unghi_x / 90 * (svg.width / 2 - r) + svg.width / 2;
 	var y = unghi_y / 90 * (svg.height / 2 - r) + svg.height / 2;
 	context.arc(x, y, r, 0, 2 * Math.PI);
