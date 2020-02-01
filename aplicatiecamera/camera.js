@@ -15,16 +15,24 @@ function on_fail_cam_uab(e)
 {
 	alert("Esec " + e);
 }
-var options = {
-  camera: navigator.mozCameras.getListOfCameras()[0]
-};
- 
-function onSuccess( camera ) {
-  var capabilities = camera.camera.capabilities;
 
-  if (capabilities.sceneModes.indexOf('night') > -1) {
-    camera.sceneMode = 'night';
+var options = {
+  mode: 'picture',
+  recorderProfile: 'jpg',
+  previewSize: {
+    width: 352,
+    height: 288
   }
 };
 
-navigator.mozCameras.getCamera(options).then(onSuccess)
+var camera = navigator.mozCameras.getListOfCameras()[0];
+
+function onSuccess(camera) {
+  // Do stuff with the camera
+};
+
+function onError(error) {
+  console.warn(error);
+};
+
+navigator.mozCameras.getCamera(camera, options, onSuccess, onError);
