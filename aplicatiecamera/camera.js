@@ -11,7 +11,6 @@ function onError(error) {
 
 navigator.mozCameras.getCamera(camera, options).then(onSuccess, onError);
 
-
 var sizes = instanceOfCameraControl.capabilities.pictureSizes
 
 var options = {
@@ -27,5 +26,4 @@ function onSuccess(camera) {
 };
 
 navigator.mozCameras.getCamera(options).then(onSuccess);
-
 
