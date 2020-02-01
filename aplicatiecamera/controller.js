@@ -1,3 +1,5 @@
+window.addEventListener("pauseBtn", pauseBtn);
+window.addEventListener("resumeBtn", resumeBtn);
 CameraControl.resumeRecording();
 var storage = navigator.getDeviceStorage('videos');
 var cameraOptions = {
