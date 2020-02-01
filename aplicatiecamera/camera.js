@@ -28,3 +28,4 @@ function onSuccess(camera) {
 
 navigator.mozCameras.getCamera(options).then(onSuccess);
 
+
