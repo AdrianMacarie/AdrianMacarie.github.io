@@ -1,5 +1,5 @@
 CameraControl.resumeRecording();
-var storage = navigator.getDeviceStorage('id_videos');
+var storage = navigator.getDeviceStorage('videos');
 var cameraOptions = {
   camera: navigator.mozCameras.getListOfCameras()[0]
 };
