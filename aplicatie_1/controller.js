@@ -10,11 +10,10 @@ function touch_start_uab(e)
 {
 	e.preventDefault();
 	
-	var t = e.changedTouches;
 	for (var i = 0; i < t.length; i++){
 		context.beginPath();
 		context.arc(t[i].pageX - client_rect.left, t[i].pageY - client_rect.top, 10, 0, 2 * Math.PI);
-		context.fillStyle = get_random_color();
+		context.fillStyle = black;
 		context.strokeStyle = context.fillStyle;
 		context.fill();
 		context.stroke();
@@ -31,8 +30,6 @@ function touch_start_uab(e)
 
 function touch_move_uab(e)
 {
-	e.preventDefault();
-
 	var t = e.changedTouches;
 	for (var i = 0; i < t.length; i++){
 		var touch_index = -1;
@@ -59,7 +56,6 @@ function touch_move_uab(e)
 
 function touch_end_uab(e)
 {
-	e.preventDefault();
 
 	var t = e.changedTouches;
 	for (var i = 0; i < t.length; i++){
