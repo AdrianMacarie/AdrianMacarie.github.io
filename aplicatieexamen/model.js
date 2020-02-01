@@ -3,11 +3,10 @@ class t_eq2_model{
 	b;
 	c;
 	x1_re;
-	x1_im;
 	x2_re;
+	x1_im;
 	x2_im;
-	constructor()
-	{
+	constructor(){
 		this.a = 1;
 		this.b = 1;
 		this.c = 1;
@@ -26,20 +25,19 @@ class t_eq2_model{
 	
 	solve()
 	{
-		// calcul
 		var delta = this.b * this.b - 4 * this.a * this.c;
 		
 		if (delta >= 0){
 			this.x1_re = (-this.b - Math.sqrt(delta)) / (2 * this.a);
-			this.x2_re = (-this.b + Math.sqrt(delta)) / (2 * this.a);		
+			this.x2_re = (-this.b + Math.sqrt(delta)) / (2 * this.a);
 			this.x1_im = 0;
 			this.x2_im = 0;
 		}
 		else{
-			this.x1_re = (-this.b) / (2 * this.a);
-			this.x2_re = (-this.b) / (2 * this.a);		
-			this.x1_im =  - Math.sqrt(-delta) / (2 * this.a);
-			this.x2_im =  + Math.sqrt(-delta) / (2 * this.a);	
+			this.x1_re = -this.b / (2 * this.a);
+			this.x2_re = -this.b / (2 * this.a);
+			this.x1_im = (- Math.sqrt(-delta)) / (2 * this.a);
+			this.x2_im = (+ Math.sqrt(-delta)) / (2 * this.a);
 		}		
 	}
 	

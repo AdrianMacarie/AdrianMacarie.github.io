@@ -1,26 +1,27 @@
-class t_events{
+class t_events{ //t_list_of_events_and_functions{
 	events;
-	constructor()
-	{
+	
+	constructor(){
 		this.events = [];
 	}
 	
-	add_event(event_name, listener)
+	add_event_uab(event_name, listener)
 	{
 		if (this.events.length == 0){
 			this.events.push(event_name);
 			this.events[event_name] = [];
 		}
 		else
-			if (this.events.indexOf(event_name) == -1){
+			if (this.events.indexOf[event_name] == -1){ // nu este in lista
 				this.events.push(event_name);
 				this.events[event_name] = [];
 			}
+			
 		this.events[event_name].push(listener);	
 	}
 	
-	call_event(event_name, args)
+	call_event_uab(event_name, params)
 	{
-		this.events[event_name].forEach(f => f(args));
+		this.events[event_name].forEach(i => i(params));
 	}
 }

@@ -1,37 +1,39 @@
 class t_eq2_view{
-	events;
+	// lista de functii
+	events_list;
 	constructor()
 	{
-		document.getElementById("id_button").addEventListener("click", this.on_solve_click.bind(this));
+		document.getElementById("id_solve").addEventListener("click", this.on_button_pressed.bind(this));
 	}
 	
-	set_events_list(events)
-	{
-		this.events = events;
+	set_events(events)
+	{// setam lista de functii
+		this.events_list = events;
 	}
 	
-	on_solve_click()
+	on_button_pressed()
 	{
-		//ar trebui sa apelam metoda on_solve din controller ... dar nu putem direct
-		// generam un eveniment care apeleaza metoda on_solve stocata in lista
-		this.events.call_event("solve_clicked_uab");
+		//controller.on_solve
+		//lista functii apeleaza functia dorita
+		this.events_list.call_event_uab("on_solve_clicked_uab");
 	}
 	
 	get_a()
 	{
-		return document.getElementById("id_a").value;
+		return document.getElementById("id_a").value;	
 	}
 	get_b()
 	{
-		return document.getElementById("id_b").value;		
+		return document.getElementById("id_b").value;
 	}
 	get_c()
 	{
-		return document.getElementById("id_c").value;
+		return document.getElementById("id_c").value;	
 	}
-	set_solutions_para(solutions)
+	
+	set_solutions(x1_re, x1_im, x2_re, x2_im)
 	{
-		document.getElementById("id_x1").innerHTML = "x1 = " + solutions.x1_re + "+" + solutions.x1_im + "i";
-		document.getElementById("id_x2").innerHTML = "x2 = " + solutions.x2_re + "+" + solutions.x2_im + "i";
+		document.getElementById("id_x1").innerHTML = x1_re + "+" + x1_im + "i";
+		document.getElementById("id_x2").innerHTML = x2_re + "+" + x2_im + "i";
 	}
 }

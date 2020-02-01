@@ -1,18 +1,14 @@
 class t_eq2_controller{
 	view;
 	model;
-	
 	constructor(view, model)
 	{
 		this.view = view;
 		this.model = model;
 		
-		// construim o lista de evenimente care au atasate functii ascultatoare
-		var events = new t_events();
-		// adaugam on_solve (metoda controllerului) in lista
-		events.add_event("solve_clicked_uab", this.on_solve.bind(this));
-		// trasmitem lista la view
-		this.view.set_events_list(events);
+		var events_list = new t_events(); // cream o lista de functii
+		events_list.add_event_uab("on_solve_clicked_uab", this.on_solve.bind(this));// adaugam la lista pe on_solve
+		this.view.set_events(events_list); // trimitem la view lista de functii
 	}
 	
 	on_solve()
@@ -21,11 +17,13 @@ class t_eq2_controller{
 		var b = this.view.get_b();
 		var c = this.view.get_c();
 		
+		
+		
 		this.model.set_coefficients(a, b, c);
 		this.model.solve();
 		var solutions = this.model.get_solutions();
 		
-		this.view.set_solutions_para(solutions);
+		this.view.set_solutions(solutions.x1_re, solutions.x1_im, solutions.x2_re, solutions.x2_im);
 	}
 }
 
