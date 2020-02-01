@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-
 <html>
 <body>
-<p id = "id_logic"></p>
 
-<canvas id="canvas"></canvas>
+<canvas id="myCanvas" width="200" height="100"
+style="border:1px solid #c3c3c3;">
+Your browser does not support the canvas element.
+</canvas>
 
-<script src = "desen.js"></script>
-<script src = "controller.js"></script>
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "#FF0000";
+ctx.fillRect(0,0,150,75);
+</script>
 
 </body>
 </html>
