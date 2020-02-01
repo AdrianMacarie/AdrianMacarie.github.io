@@ -1,14 +1,12 @@
-window.addEventListener("pauseBtn", pauseBtn);
-window.addEventListener("resumeBtn", resumeBtn);
 CameraControl.resumeRecording();
 var storage = navigator.getDeviceStorage('videos');
 var cameraOptions = {
   camera: navigator.mozCameras.getListOfCameras()[0]
 };
 var recordOptions = {
-  rotation: 0,
-  maxFileSizeBytes: 1024 * 1024 * 1024 // 1 GB
-  maxVideoLengthMs: 1000 * 60 * 60     // 1 hour
+  rotation: 0;
+  maxFileSizeBytes: 1024 * 1024 * 1024; // 1 GB
+  maxVideoLengthMs: 1000 * 60 * 60;     // 1 hour
 }
 
 function onRecordStart() {
@@ -20,7 +18,7 @@ function onStateChange( newState ) {
 }
 
 function onAccessCamera( camera ) {
-  camera.startRecording(recordOptions, storage, 'myVideo.3gp', onRecordStart);
+  camera.startRecording(recordOptions, storage, 'myVideo.mpg', onRecordStart);
   camera.onRecorderStateChange = onStateChange;
 
   pauseBtn.onclick = function() {
