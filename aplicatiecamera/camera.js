@@ -1,29 +1,17 @@
-var camera = navigator.mozCameras.getListOfCameras()[0];
+document.getElementById("id_logic_version").innerHTML = "2019.11.22.1";
 
-function onSuccess(cameraObj) {
-  var cameraControl = cameraObj.camera;
-  // Do stuff with the cameraControl
-};
+var video = document.getElementById("id_video");
 
-function onError(error) {
-  console.warn(error);
-};
+var c = { audio: true, video: { facingMode: "environment" }};
 
-navigator.mozCameras.getCamera(camera, options).then(onSuccess, onError);
+navigator.mediaDevices.getUserMedia(c).then(on_ok_cam_uab).catch(on_fail_cam_uab);
 
-var sizes = instanceOfCameraControl.capabilities.pictureSizes
+function on_ok_cam_uab(e)
+{
+	video.srcObject = e;
+}
 
-var options = {
-  camera: navigator.mozCameras.getListOfCameras()[0]
-};
- 
-function onSuccess(camera) {
-  var sizes = camera.camera.capabilities.pictureSizes;
-  
-  sizes.forEach(function (size) {
-    console.log(size.width + 'x' + size.height);
-  });
-};
-
-navigator.mozCameras.getCamera(options).then(onSuccess);
-
+function on_fail_cam_uab(e)
+{
+	alert("Esec " + e);
+}
