@@ -1,22 +1,25 @@
-<!DOCTYPE html>
-<html>
+<video id="video" width="640" height="480" autoplay></video>
+	<button id="snap" class="sexyButton">Snap Photo</button>
+	<canvas id="canvas" width="640" height="480"></canvas>
 
-<link href="c.css" rel="stylesheet">
-<head>
-  <link href="c.css" rel="stylesheet">
-</head>
-<body>
+	<script>
 
-<h1>Aplicatie mobile camera</h1>
+		// Put event listeners into place
+		window.addEventListener("DOMContentLoaded", function() {
+			// Grab elements, create settings, etc.
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            var video = document.getElementById('video');
+            var mediaConfig =  { video: true };
+            var errBack = function(e) {
+            	console.log('An error has occurred!', e)
+            };
 
-<div id="v">
-<video width = "640" height = "480" id = "id_video"></video>
-</div>
-<canvas id="canvas" width="640" height="480"></canvas>
-<p><button class="capture-button">Capture video</button>
-<script src = "camera.js"></script>
-<script src = "controller.js"></script>
-
-</body>
-
-</html>
+			// Put video listeners into place
+            if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia(mediaConfig).then(function(stream) {
+					//video.src = window.URL.createObjectURL(stream);
+					video.srcObject = stream;
+                    video.play();
+                });
+            }
