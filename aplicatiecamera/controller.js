@@ -1,5 +1,4 @@
-const captureVideoButton =
-document.querySelector('#screenshot .capture-button');
+const captureVideoButton = document.querySelector('#screenshot .capture-button');
 const screenshotButton = document.querySelector('#screenshot-button');
 const img = document.querySelector('#screenshot img');
 const video = document.querySelector('#screenshot video');
