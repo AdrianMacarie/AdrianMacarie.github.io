@@ -1,39 +1,15 @@
-var camera = navigator.mozCameras.getListOfCameras()[0];
+var video = document.getElementById("id_video");
 
-function onSuccess(cameraObj) {
-  var cameraControl = cameraObj.camera;
-  // Do stuff with the cameraControl
-};
+var c = { audio: true, video: { facingMode: "environment" }};
 
-function onError(error) {
-  console.warn(error);
-};
+navigator.mediaDevices.getUserMedia(c).then(on_ok_cam_uab).catch(on_fail_cam_uab);
 
-navigator.mozCameras.getCamera(camera, options).then(onSuccess, onError);
+function on_ok_cam_uab(e)
+{
+	video.srcObject = e;
+}
 
-
-var sizes = instanceOfCameraControl.capabilities.pictureSizes
-
-var options = {
-  camera: navigator.mozCameras.getListOfCameras()[0]
-};
- 
-function onSuccess(camera) {
-  var sizes = camera.camera.capabilities.pictureSizes;
-  
-  sizes.forEach(function (size) {
-    console.log(size.width + 'x' + size.height);
-  });
-};
-
-navigator.mozCameras.getCamera(options).then(onSuccess);
-
-
-var imageCapture = new ImageCapture(videoTrack)
- navigator.mediaDevices.getUserMedia({video: true})
-.then(mediaStream => { 
-  document.querySelector('video').srcObject = mediaStream
-  const track = mediaStream.getVideoTracks()[0];
-  imageCapture = new ImageCapture(track);
-})
-.catch(error => console.log(error));
+function on_fail_cam_uab(e)
+{
+	alert("Esec " + e);
+}
