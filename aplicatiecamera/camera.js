@@ -1,3 +1,5 @@
+document.getElementById("id_logic_version").innerHTML = "2019.11.22.1";
+
 var video = document.getElementById("id_video");
 
 var c = { audio: true, video: { facingMode: "environment" }};
