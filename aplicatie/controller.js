@@ -10,7 +10,6 @@ var canvas_rect = canvas.getBoundingClientRect();
 
 function touch_start_uab(p)
 {
-	var t = p.changedTouches;
 	for (var i = 0; i < t.length; i++){
 		touch_info.x = t[i].pageX;
 		touch_info.y = t[i].pageY;
@@ -51,4 +50,3 @@ function touch_move_uab(p)
 }
 
 
-}
