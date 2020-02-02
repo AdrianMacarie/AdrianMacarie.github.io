@@ -48,5 +48,3 @@ function touch_move_uab(p)
 		last_position[index_t].y = t[i].pageY;
 	}
 }
-
-
