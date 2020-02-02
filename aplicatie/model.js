@@ -1,8 +1,6 @@
 document.getElementById("id_logic").innerHTML = "2019.11.29.8";
 
 window.addEventListener("touchstart", touch_start_uab, { passive: false }); 
-window.addEventListener("touchmove", touch_move_uab, { passive: false }); 
-window.addEventListener("touchend", touch_end_uab, { passive: false }); 
 
 
 var canvas = document.getElementById("id_canvas");
