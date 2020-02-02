@@ -7,10 +7,7 @@
     padding:10px;
     border-radius:4px;
 }
-.rightside {
-    float:left;
-    margin-left:10px;
-}
+
 #canvas {
     float:left;
     height:300px;

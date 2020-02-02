@@ -12,14 +12,14 @@
     function clearCanvas(canvas,ctx) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
-    function sketchpad_mouseDown() {
+    function canvas_mouseDown() {
         mouseDown=1;
         drawDot(ctx,mouseX,mouseY,12);
     }
-    function sketchpad_mouseUp() {
+    function canvas_mouseUp() {
         mouseDown=0;
     }
-    function sketchpad_mouseMove(e) { 
+    function canvas_mouseMove(e) { 
         getMousePos(e);
         if (mouseDown==1) {
             drawDot(ctx,mouseX,mouseY,12);
@@ -39,12 +39,12 @@
         }
      }
 
-    function sketchpad_touchStart() {
+    function canvas_touchStart() {
         getTouchPos();
         drawDot(ctx,touchX,touchY,12);
         event.preventDefault();
     }
-    function sketchpad_touchMove(e) { 
+    function canvas_touchMove(e) { 
         getTouchPos(e);
         drawDot(ctx,touchX,touchY,12); 
         event.preventDefault();
@@ -63,14 +63,14 @@
     }
 
     function init() {
-        canvas = document.getElementById('sketchpad');
+        canvas = document.getElementById('canvas');
         if (canvas.getContext)
             ctx = canvas.getContext('2d');
         if (ctx) {
-             canvas.addEventListener('mousedown', sketchpad_mouseDown, false);
-            canvas.addEventListener('mousemove', sketchpad_mouseMove, false);
-            window.addEventListener('mouseup', sketchpad_mouseUp, false);
-            canvas.addEventListener('touchstart', sketchpad_touchStart, false);
-            canvas.addEventListener('touchmove', sketchpad_touchMove, false);
+             canvas.addEventListener('mousedown', canvas_mouseDown, false);
+            canvas.addEventListener('mousemove', canvas_mouseMove, false);
+            window.addEventListener('mouseup', canvas_mouseUp, false);
+            canvas.addEventListener('touchstart', canvas_touchStart, false);
+            canvas.addEventListener('touchmove', canvas_touchMove, false);
         }
     }
