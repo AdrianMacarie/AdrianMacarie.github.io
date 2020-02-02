@@ -1,43 +1,18 @@
-const captureVideoButton = document.querySelector('#screenshot .capture-button');
-const img = document.querySelector('#screenshot img');
+var video = document.getElementById('video');
 
-const canvas = document.createElement('canvas');
-
-captureVideoButton.onclick = function() {
-  navigator.mediaDevices.getUserMedia(constraints).
-    then(handleSuccess).catch(handleError);
-};
-const captureVideoButton =
-  document.querySelector('#cssfilters .capture-button');
-const cssFiltersButton =
-  document.querySelector('#cssfilters-apply');
-const video =
-  document.querySelector('#cssfilters video');
-
-let filterIndex = 0;
-const filters = [
-  'grayscale',
-  'sepia',
-  'blur',
-  'brightness',
-  'contrast',
-  'hue-rotate',
-  'hue-rotate2',
-  'hue-rotate3',
-  'saturate',
-  'invert',
-  ''
-];
-
-captureVideoButton.onclick = function() {
-  navigator.mediaDevices.getUserMedia(constraints).
-    then(handleSuccess).catch(handleError);
-};
-
-cssFiltersButton.onclick = video.onclick = function() {
-  video.className = filters[filterIndex++ % filters.length];
-};
-
-function handleSuccess(stream) {
-  video.srcObject = stream;
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+    });
 }
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
+
+// Trigger photo take
+document.getElementById(".capture-button").addEventListener("click", function() {
+	context.drawImage(video, 0, 0, 640, 480);
+});
