@@ -4,7 +4,7 @@ var cameraOptions = {
   camera: navigator.mozCameras.getListOfCameras()[0]
 };
 var recordOptions = {
-  rotation: 0;
+  rotation: 0
   maxFileSizeBytes: 1024 * 1024 * 1024; // 1 GB
   maxVideoLengthMs: 1000 * 60 * 60;     // 1 hour
 }
