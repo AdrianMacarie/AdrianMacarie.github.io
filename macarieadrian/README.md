@@ -1,4 +1,4 @@
-Nume proiect: Aplicatie camera
+Nume proiect: Aplicatie camera 
 Autor: Macarie Valer Adrian
 Descriere: Aplicatia ruleaza pe majoritatea sistemelor de operare
 Tehnologii folosite: HTML si javascript
